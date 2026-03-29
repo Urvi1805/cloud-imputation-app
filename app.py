@@ -127,13 +127,7 @@ if file:
     if res is not None:
         st.subheader("📈 Comparison of Imputation Techniques (RMSE)")
         st.dataframe(res["results_df"], use_container_width=True)
-
-        fig, ax = plt.subplots(figsize=(6, 4))
-        sns.barplot(data=res["results_df"], x="Method", y="RMSE", ax=ax)
-        ax.set_ylabel("RMSE (observed cells)")
-        fig.tight_layout()
-        st.pyplot(fig, clear_figure=True)
-
+        
         # Heatmap: full grid is too large for tens of thousands of rows — sample for display
         st.subheader("🔥 Missing Data Heatmap")
         miss = res["df_missing"]
